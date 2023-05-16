@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws NumberFormatException {
+    public static void main(String[] args) {
 
         System.out.println("-------Калькулятор арабских цифр-------");
         System.out.println("Калькулятор принимает арабские цифры, от 1 до 10 включительно");
@@ -48,9 +48,7 @@ public class Main {
                     int multiResult = firstArg * secondArg;
                     System.out.println("Ответ: " + multiResult);
                 }
-            } else {
-                System.out.println("Вы ввели не правильный формат. Правильный формат: a + b, a * b.");
-            }
+            } 
         } catch (NumberFormatException e) {
             System.out.println("Вы ввели не правильный формат");
         } catch (ArrayIndexOutOfBoundsException exe) {
