@@ -7,10 +7,14 @@ public class Main {
         System.out.println("Калькулятор принимает арабские цифры, от 1 до 10 включительно");
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Введи целые числа и арифметическое действие через пробел. Пример: 1 + 4 или 6 * 3");
+        Scanner sc = new Scanner(System.in);
+        calc(sc.nextLine());
+    }
 
+    public static String calc(String input) {
         try {
-            Scanner sc = new Scanner(System.in);
-            String expression = sc.nextLine();
+
+            String expression = input;
             int length = expression.length();
 
             if (length <= 6) {
@@ -18,17 +22,17 @@ public class Main {
                 int firstArg = Integer.parseInt(expression.split(" ")[0]);
                 if (firstArg == 10) {
                     System.out.println("Пожалуйста, укажите цифру 10 вторым числом. Введите число от 1 до 10");
-                    return;
+
                 }
                 if (firstArg < 0 || firstArg > 10) {
                     System.out.println("Вы ввели число меньше или больше указаного диапазона чисел. Введите числа от 1 до 10");
-                    return;
+
                 }
                 int secondArg = Integer.parseInt(expression.split(" ")[2]);
 
                 if (secondArg < 0 || secondArg > 10) {
                     System.out.println("Вы ввели число меньше или больше указаного диапазона чисел.");
-                    return;
+
                 }
 
                 char symbol = expression.charAt(2);
@@ -48,11 +52,12 @@ public class Main {
                     int multiResult = firstArg * secondArg;
                     System.out.println("Ответ: " + multiResult);
                 }
-            } 
+            }
         } catch (NumberFormatException e) {
             System.out.println("Вы ввели не правильный формат");
         } catch (ArrayIndexOutOfBoundsException exe) {
             System.out.println("Строка не является математической операцией");
         }
+        return input;
     }
 }
