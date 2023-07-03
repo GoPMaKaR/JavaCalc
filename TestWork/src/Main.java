@@ -15,6 +15,10 @@ public class Main {
         try {
 
             String expression = input;
+            if (expression.contains(".") || expression.contains(",")) {
+                System.out.println("Вы ввели дробное число");
+                System.exit(0);
+            }
             int length = expression.length();
 
             if (length <= 6) {
@@ -23,17 +27,17 @@ public class Main {
                 if (firstArg == 10) {
                     System.out.println("Пожалуйста, укажите цифру 10 вторым числом. Введите число от 1 до 10");
 
-                }
-                if (firstArg < 0 || firstArg > 10) {
+                } else if (firstArg < 0 || firstArg > 10) {
                     System.out.println("Вы ввели число меньше или больше указаного диапазона чисел. Введите числа от 1 до 10");
-
+                    System.exit(0);
                 }
                 int secondArg = Integer.parseInt(expression.split(" ")[2]);
 
                 if (secondArg < 0 || secondArg > 10) {
                     System.out.println("Вы ввели число меньше или больше указаного диапазона чисел.");
-
+                    System.exit(0);
                 }
+
 
                 char symbol = expression.charAt(2);
                 if (symbol == '+') {
