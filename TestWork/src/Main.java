@@ -56,6 +56,8 @@ public class Main {
                     int multiResult = firstArg * secondArg;
                     System.out.println("Ответ: " + multiResult);
                 }
+            } else {
+                System.out.println("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
             }
         } catch (NumberFormatException e) {
             System.out.println("Вы ввели не правильный формат");
